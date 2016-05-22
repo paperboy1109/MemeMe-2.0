@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var topMemeText: UITextField!
     @IBOutlet var bottomMemeText: UITextField!
     @IBOutlet var memeView: UIImageView!
+    @IBOutlet var cameraBtn: UIBarButtonItem!
     
     var initialVerticalPosForView: CGFloat!
     
@@ -50,6 +51,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        cameraBtn.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
 
         self.subscribeToKeyboardNotifications()
         
@@ -66,6 +69,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func pickAlbumImage(sender: AnyObject) {
         
         pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        self.presentViewController(pickerController, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func pickCameraImg(sender: AnyObject) {
+        
+        pickerController.sourceType = UIImagePickerControllerSourceType.Camera
         
         self.presentViewController(pickerController, animated: true, completion: nil)
         

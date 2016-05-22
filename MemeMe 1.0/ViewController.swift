@@ -8,14 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var topMemeText: UITextField!
     @IBOutlet var bottomMemeText: UITextField!
+    @IBOutlet var memeView: UIImageView!
     
     var initialVerticalPosForView: CGFloat!
     
     var memeTextDelegate = MemeTextDelegate()
+    let pickerController = UIImagePickerController()
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName: UIColor.blackColor(),
@@ -28,6 +30,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         initialVerticalPosForView = self.view.frame.origin.y
+        
+        pickerController.delegate = self
         
         self.topMemeText.delegate = memeTextDelegate
         self.bottomMemeText.delegate = memeTextDelegate
@@ -56,6 +60,41 @@ class ViewController: UIViewController {
         self.unsubscribeFromKeyboardNotifications()
     }
     
+    
+    // Actions when toolbar buttons are tapped
+    
+    @IBAction func pickAlbumImage(sender: AnyObject) {
+        
+        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        self.presentViewController(pickerController, animated: true, completion: nil)
+        
+    }
+    
+    // Actions for updating the image
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            memeView.image = pickedImage
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+        // For debugging learning
+        print("imagePickerControllerDidCancel called")
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    // Don't let the keyboard obstruct the view
+    
+    
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
@@ -75,9 +114,6 @@ class ViewController: UIViewController {
     
     func keyboardWillHide(notification: NSNotification) {
         
-        //print(self.view.frame.origin.y)
-        //print(initialVerticalPosForView - getKeyboardHeight(notification))
-        
         if bottomMemeText.isFirstResponder() {
             if self.view.frame.origin.y < initialVerticalPosForView {
                 //self.view.frame.origin.y += getKeyboardHeight(notification)
@@ -87,10 +123,6 @@ class ViewController: UIViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
@@ -108,7 +140,6 @@ class ViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-
 
 }
 

@@ -14,11 +14,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var bottomMemeText: UITextField!
     @IBOutlet var memeView: UIImageView!
     @IBOutlet var cameraBtn: UIBarButtonItem!
+    @IBOutlet var topToolbar: UIToolbar!
+    @IBOutlet var bottomToolbar: UIToolbar!
     
     var initialVerticalPosForView: CGFloat!
     
     var memeTextDelegate = MemeTextDelegate()
     let pickerController = UIImagePickerController()
+    
+    struct Meme {
+        var topMemeText: String?
+        var bottomMemeText: String?
+        var originalImg: UIImage?
+        var memeImg: UIImage?
+    }
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName: UIColor.blackColor(),
@@ -37,8 +46,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.topMemeText.delegate = memeTextDelegate
         self.bottomMemeText.delegate = memeTextDelegate
         
-        topMemeText.attributedPlaceholder = NSAttributedString(string:"TOP", attributes: memeTextAttributes)
-        bottomMemeText.attributedPlaceholder = NSAttributedString(string:"BOTTOM", attributes: memeTextAttributes)
+        setPlaceholderText()
         
         topMemeText.defaultTextAttributes = memeTextAttributes
         bottomMemeText.defaultTextAttributes = memeTextAttributes
@@ -82,6 +90,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    @IBAction func launchActivityView() {
+        
+        let image = UIImage()
+        
+        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        self.presentViewController(controller, animated: true, completion: nil)
+        
+    }
+    
     // Actions for updating the image
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
@@ -95,9 +113,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        
-        // For debugging learning
-        print("imagePickerControllerDidCancel called")
         
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -117,6 +132,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topMemeText.attributedPlaceholder = NSAttributedString(string:"TOP", attributes: memeTextAttributes)
         bottomMemeText.attributedPlaceholder = NSAttributedString(string:"BOTTOM", attributes: memeTextAttributes)
         
+    }
+    
+    // Actions for sharing the meme
+    func save() {
+        // let meme = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: memedImage)
+    }
+    
+    func generateMemedImg() -> UIImage {
+        
+        // Hide the toolbars
+        topToolbar.hidden = true
+        bottomToolbar.hidden = true
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        
+        let memedImg: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // Show the toolbars
+        topToolbar.hidden = false
+        bottomToolbar.hidden = false
+        
+        return memedImg
     }
     
     

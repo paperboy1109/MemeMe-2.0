@@ -19,6 +19,13 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    // Hide the status bar so it doesn interfere with the top bar buttons
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 
 
 }

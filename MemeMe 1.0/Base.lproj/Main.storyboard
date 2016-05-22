@@ -44,7 +44,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-ho-TW4">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-ho-TW4" userLabel="Bottom Meme Text">
                                 <rect key="frame" x="20" y="450" width="560" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="Oxm-jF-xG1"/>
@@ -70,6 +70,10 @@
                             <constraint firstItem="i2Z-Qw-Vzs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nfp-Dg-pbW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomMemeText" destination="eY1-ho-TW4" id="OQN-Tk-4we"/>
+                        <outlet property="topMemeText" destination="Tbr-9h-oDg" id="pXt-oO-QLM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

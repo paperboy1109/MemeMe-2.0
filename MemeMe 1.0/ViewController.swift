@@ -9,10 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet var topMemeText: UITextField!
+    @IBOutlet var bottomMemeText: UITextField!
+    
+    var memeTextDelegate = MemeTextDelegate()
+    
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName: UIColor.blackColor(),
+        NSForegroundColorAttributeName: UIColor.whiteColor(),
+        NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName: -5
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        self.topMemeText.delegate = memeTextDelegate
+        self.bottomMemeText.delegate = memeTextDelegate
+        
+        topMemeText.attributedPlaceholder = NSAttributedString(string:"TOP", attributes: memeTextAttributes)
+        bottomMemeText.attributedPlaceholder = NSAttributedString(string:"BOTTOM", attributes: memeTextAttributes)
+        
+        topMemeText.defaultTextAttributes = memeTextAttributes
+        bottomMemeText.defaultTextAttributes = memeTextAttributes
+        
+        bottomMemeText.textAlignment = NSTextAlignment.Center
+        topMemeText.textAlignment = NSTextAlignment.Center
+        
     }
 
     override func didReceiveMemoryWarning() {

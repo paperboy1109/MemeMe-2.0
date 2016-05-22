@@ -102,6 +102,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    @IBAction func cancelMeme() {
+        
+        memeView.image = nil
+        setPlaceholderText()
+        
+    }
+    
+    func setPlaceholderText() {
+        
+        topMemeText.text = ""
+        bottomMemeText.text = ""
+        
+        topMemeText.attributedPlaceholder = NSAttributedString(string:"TOP", attributes: memeTextAttributes)
+        bottomMemeText.attributedPlaceholder = NSAttributedString(string:"BOTTOM", attributes: memeTextAttributes)
+        
+    }
+    
     
     // Don't let the keyboard obstruct the view
     

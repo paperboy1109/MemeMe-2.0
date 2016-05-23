@@ -103,6 +103,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         self.presentViewController(controller, animated: true, completion: nil)
         
+        controller.completionWithItemsHandler = {
+            (activityType, completed, returnedItems, activityError) in
+            print("Activity: \(activityType) Success: \(completed) Items: \(returnedItems) Error: \(activityError)")
+            
+            if activityError == nil {
+                self.save()
+                controller.dismissViewControllerAnimated(true, completion: nil)
+            }
+        }
+        
+        
     }
     
     // Actions for updating the image

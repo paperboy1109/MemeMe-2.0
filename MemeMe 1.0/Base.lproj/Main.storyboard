@@ -98,6 +98,7 @@
                         <outlet property="bottomToolbar" destination="i2Z-Qw-Vzs" id="77S-yu-YC0"/>
                         <outlet property="cameraBtn" destination="H8L-Jw-pbc" id="dEd-us-BV0"/>
                         <outlet property="memeView" destination="QnI-wE-afH" id="fW0-1X-ahS"/>
+                        <outlet property="shareBtn" destination="P7i-yV-SbG" id="yCP-qI-48D"/>
                         <outlet property="topMemeText" destination="Tbr-9h-oDg" id="pXt-oO-QLM"/>
                         <outlet property="topToolbar" destination="BJI-rI-vF1" id="3MX-fe-SJx"/>
                     </connections>

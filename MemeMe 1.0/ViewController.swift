@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var bottomMemeText: UITextField!
     @IBOutlet var memeView: UIImageView!
     @IBOutlet var cameraBtn: UIBarButtonItem!
+    @IBOutlet var shareBtn: UIBarButtonItem!
     @IBOutlet var topToolbar: UIToolbar!
     @IBOutlet var bottomToolbar: UIToolbar!
     
@@ -54,6 +55,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomMemeText.textAlignment = NSTextAlignment.Center
         topMemeText.textAlignment = NSTextAlignment.Center
         
+        shareBtn.enabled = false
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -92,9 +95,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func launchActivityView() {
         
-        let image = UIImage()
+        //let image = UIImage()
+        let newMeme = generateMemedImg()
         
-        let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        //let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        let controller = UIActivityViewController(activityItems: [newMeme], applicationActivities: nil)
         
         self.presentViewController(controller, animated: true, completion: nil)
         
@@ -106,6 +111,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             memeView.image = pickedImage
+            
+            shareBtn.enabled = true
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -136,7 +143,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // Actions for sharing the meme
     func save() {
-        // let meme = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: memedImage)
+        
+        let newMeme = generateMemedImg()
+        let meme = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: newMeme)
     }
     
     func generateMemedImg() -> UIImage {

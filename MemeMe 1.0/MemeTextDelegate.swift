@@ -20,6 +20,14 @@ class MemeTextDelegate: NSObject, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
+        print("Hello")
+        print(textField.text?.isEmpty)
+        
+        //If this is the first time entering text, clear the text field
+        if let text = textField.text where text.isEmpty
+        {
+            textField.placeholder = ""
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

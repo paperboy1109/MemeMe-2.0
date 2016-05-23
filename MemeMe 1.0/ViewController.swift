@@ -44,16 +44,23 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         pickerController.delegate = self
         
-        self.topMemeText.delegate = memeTextDelegate
-        self.bottomMemeText.delegate = memeTextDelegate
+        setupTextField(topMemeText)
+        setupTextField(bottomMemeText)
         
-        setPlaceholderText()
+        setPlaceholderText(topMemeText, initialText: "TOP")
+        setPlaceholderText(bottomMemeText, initialText: "BOTTOM")
         
-        topMemeText.defaultTextAttributes = memeTextAttributes
-        bottomMemeText.defaultTextAttributes = memeTextAttributes
+        //self.topMemeText.delegate = memeTextDelegate
+        //self.bottomMemeText.delegate = memeTextDelegate
         
-        bottomMemeText.textAlignment = NSTextAlignment.Center
-        topMemeText.textAlignment = NSTextAlignment.Center
+        //setPlaceholderText()
+        
+        //topMemeText.defaultTextAttributes = memeTextAttributes
+        //bottomMemeText.defaultTextAttributes = memeTextAttributes
+        
+        //topMemeText.textAlignment = NSTextAlignment.Center
+        //bottomMemeText.textAlignment = NSTextAlignment.Center
+        
         
         shareBtn.enabled = false
         
@@ -108,7 +115,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("Activity: \(activityType) Success: \(completed) Items: \(returnedItems) Error: \(activityError)")
             
             if activityError == nil {
-                self.save()
+                if completed {
+                    self.save(newMeme)
+                }
                 controller.dismissViewControllerAnimated(true, completion: nil)
             }
         }
@@ -121,6 +130,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
             memeView.image = pickedImage
             
             shareBtn.enabled = true
@@ -138,30 +148,49 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBAction func cancelMeme() {
         
         memeView.image = nil
-        setPlaceholderText()
+        setPlaceholderText(topMemeText, initialText: "TOP")
+        setPlaceholderText(bottomMemeText, initialText: "BOTTOM")
         
     }
     
-    func setPlaceholderText() {
+    func setPlaceholderText(textField: UITextField, initialText: String) {
         
         topMemeText.text = ""
         bottomMemeText.text = ""
         
-        topMemeText.attributedPlaceholder = NSAttributedString(string:"TOP", attributes: memeTextAttributes)
-        bottomMemeText.attributedPlaceholder = NSAttributedString(string:"BOTTOM", attributes: memeTextAttributes)
+        textField.text = ""
+        
+        //topMemeText.attributedPlaceholder = NSAttributedString(string:"TOP", attributes: memeTextAttributes)
+        //bottomMemeText.attributedPlaceholder = NSAttributedString(string:"BOTTOM", attributes: memeTextAttributes)
+        
+        textField.attributedPlaceholder = NSAttributedString(string: initialText, attributes: memeTextAttributes)
+        
+        
+    }
+    
+    func setupTextField(textField: UITextField) {
+        
+        textField.delegate = memeTextDelegate
+        
+        //setPlaceholderText()
+        //setPlaceholderText(topMemeText, initialText: "TOP")
+        
+        textField.defaultTextAttributes = memeTextAttributes
+        
+        textField.textAlignment = NSTextAlignment.Center
         
     }
     
     // Actions for sharing the meme
-    func save() {
+    func save(newMeme: UIImage) {
         
-        let newMeme = generateMemedImg()
+        //let newMeme = generateMemedImg()
         let meme = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: newMeme)
     }
     
     func generateMemedImg() -> UIImage {
         
-        // Hide the toolbars
+        // Hide the toolbars so that they are not in the meme
         topToolbar.hidden = true
         bottomToolbar.hidden = true
         

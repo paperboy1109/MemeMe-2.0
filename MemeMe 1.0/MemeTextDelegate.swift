@@ -12,16 +12,12 @@ import UIKit
 class MemeTextDelegate: NSObject, UITextFieldDelegate {
     
     
-    // Text Field Delegate Methods
-    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
         return true
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        print("Hello")
-        print(textField.text?.isEmpty)
         
         //If this is the first time entering text, clear the text field
         if let text = textField.text where text.isEmpty

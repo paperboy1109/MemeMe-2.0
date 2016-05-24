@@ -50,18 +50,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         setPlaceholderText(topMemeText, initialText: "TOP")
         setPlaceholderText(bottomMemeText, initialText: "BOTTOM")
         
-        //self.topMemeText.delegate = memeTextDelegate
-        //self.bottomMemeText.delegate = memeTextDelegate
-        
-        //setPlaceholderText()
-        
-        //topMemeText.defaultTextAttributes = memeTextAttributes
-        //bottomMemeText.defaultTextAttributes = memeTextAttributes
-        
-        //topMemeText.textAlignment = NSTextAlignment.Center
-        //bottomMemeText.textAlignment = NSTextAlignment.Center
-        
-        
         shareBtn.enabled = false
         
     }
@@ -102,17 +90,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func launchActivityView() {
         
-        //let image = UIImage()
         let newMeme = generateMemedImg()
         
-        //let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         let controller = UIActivityViewController(activityItems: [newMeme], applicationActivities: nil)
         
         self.presentViewController(controller, animated: true, completion: nil)
         
         controller.completionWithItemsHandler = {
             (activityType, completed, returnedItems, activityError) in
-            print("Activity: \(activityType) Success: \(completed) Items: \(returnedItems) Error: \(activityError)")
             
             if activityError == nil {
                 if completed {
@@ -160,9 +145,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         textField.text = ""
         
-        //topMemeText.attributedPlaceholder = NSAttributedString(string:"TOP", attributes: memeTextAttributes)
-        //bottomMemeText.attributedPlaceholder = NSAttributedString(string:"BOTTOM", attributes: memeTextAttributes)
-        
         textField.attributedPlaceholder = NSAttributedString(string: initialText, attributes: memeTextAttributes)
         
         
@@ -171,9 +153,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setupTextField(textField: UITextField) {
         
         textField.delegate = memeTextDelegate
-        
-        //setPlaceholderText()
-        //setPlaceholderText(topMemeText, initialText: "TOP")
         
         textField.defaultTextAttributes = memeTextAttributes
         
@@ -184,7 +163,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Actions for sharing the meme
     func save(newMeme: UIImage) {
         
-        //let newMeme = generateMemedImg()
         let meme = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: newMeme)
     }
     
@@ -232,7 +210,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if bottomMemeText.isFirstResponder() {
             if self.view.frame.origin.y < initialVerticalPosForView {
-                //self.view.frame.origin.y += getKeyboardHeight(notification)
                 self.view.frame.origin.y = initialVerticalPosForView
             }
         }

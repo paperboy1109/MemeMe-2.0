@@ -60,13 +60,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         cameraBtn.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
 
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     
@@ -76,7 +76,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentViewController(pickerController, animated: true, completion: nil)
         
     }
     
@@ -84,7 +84,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         pickerController.sourceType = UIImagePickerControllerSourceType.Camera
         
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentViewController(pickerController, animated: true, completion: nil)
         
     }
     
@@ -94,7 +94,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         let controller = UIActivityViewController(activityItems: [newMeme], applicationActivities: nil)
         
-        self.presentViewController(controller, animated: true, completion: nil)
+        presentViewController(controller, animated: true, completion: nil)
         
         controller.completionWithItemsHandler = {
             (activityType, completed, returnedItems, activityError) in
@@ -135,13 +135,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         memeView.image = nil
         setPlaceholderText(topMemeText, initialText: "TOP")
         setPlaceholderText(bottomMemeText, initialText: "BOTTOM")
+        shareBtn.enabled = false
         
     }
     
     func setPlaceholderText(textField: UITextField, initialText: String) {
-        
-        topMemeText.text = ""
-        bottomMemeText.text = ""
         
         textField.text = ""
         
@@ -163,7 +161,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Actions for sharing the meme
     func save(newMeme: UIImage) {
         
-        let meme = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: newMeme)
+        _ = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: newMeme)
     }
     
     func generateMemedImg() -> UIImage {
@@ -172,8 +170,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topToolbar.hidden = true
         bottomToolbar.hidden = true
         
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         
         let memedImg: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -199,7 +197,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if bottomMemeText.isFirstResponder() {
             if self.view.frame.origin.y >= initialVerticalPosForView {
-                self.view.frame.origin.y -= getKeyboardHeight(notification)
+                self.view.frame.origin.y = -getKeyboardHeight(notification)
             }
             
         }

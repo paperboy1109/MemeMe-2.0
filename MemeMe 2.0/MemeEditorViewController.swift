@@ -23,12 +23,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     var memeTextDelegate = MemeTextDelegate()
     let pickerController = UIImagePickerController()
     
+    /*
     struct Meme {
         var topMemeText: String?
         var bottomMemeText: String?
         var originalImg: UIImage?
         var memeImg: UIImage?
     }
+    */
     
     let memeTextAttributes = [
         NSStrokeColorAttributeName: UIColor.blackColor(),

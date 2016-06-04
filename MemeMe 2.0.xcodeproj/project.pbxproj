@@ -39,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E0E8EA41CF798AB006F76C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4E74A9EC1CF623950048950D /* Meme.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4E0E8EA71CF79911006F76C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4EF8B9D21CF24DDB00053C3C /* MemeTextDelegate.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		4EF8B9961CF229A800053C3C = {
 			isa = PBXGroup;
 			children = (
@@ -58,10 +74,10 @@
 		4EF8B9A11CF229A800053C3C /* MemeMe 2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				4E0E8EA71CF79911006F76C7 /* View */,
+				4E0E8EA41CF798AB006F76C7 /* Model */,
 				4EF8B9A21CF229A800053C3C /* AppDelegate.swift */,
 				4EF8B9A41CF229A800053C3C /* MemeEditorViewController.swift */,
-				4EF8B9D21CF24DDB00053C3C /* MemeTextDelegate.swift */,
-				4E74A9EC1CF623950048950D /* Meme.swift */,
 				4EF8B9A61CF229A800053C3C /* Main.storyboard */,
 				4EF8B9A91CF229A900053C3C /* Assets.xcassets */,
 				4EF8B9AB1CF229A900053C3C /* LaunchScreen.storyboard */,

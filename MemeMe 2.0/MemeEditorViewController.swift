@@ -163,7 +163,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // Actions for sharing the meme
     func save(newMeme: UIImage) {
         
-        _ = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: newMeme)
+        let newMeme = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: newMeme)
+        
+        // Add it to the memes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(newMeme)
     }
     
     func generateMemedImg() -> UIImage {

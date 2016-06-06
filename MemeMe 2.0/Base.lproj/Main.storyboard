@@ -173,16 +173,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7es-RH-x2U">
-                                <rect key="frame" x="20" y="28" width="560" height="564"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7es-RH-x2U" secondAttribute="trailing" id="0lt-er-xRt"/>
                             <constraint firstItem="7es-RH-x2U" firstAttribute="trailing" secondItem="WhL-uQ-HDA" secondAttribute="trailingMargin" id="Gvc-cv-Mic"/>
                             <constraint firstItem="eso-gx-0EQ" firstAttribute="top" secondItem="7es-RH-x2U" secondAttribute="bottom" constant="8" id="L3r-MI-rIJ"/>
+                            <constraint firstItem="7es-RH-x2U" firstAttribute="top" secondItem="PxW-Xw-RGA" secondAttribute="bottom" id="LFa-d0-6za"/>
                             <constraint firstItem="7es-RH-x2U" firstAttribute="top" secondItem="PxW-Xw-RGA" secondAttribute="bottom" constant="8" id="QyN-b1-U5r"/>
+                            <constraint firstItem="eso-gx-0EQ" firstAttribute="top" secondItem="7es-RH-x2U" secondAttribute="bottom" id="X5R-Gg-ZX7"/>
                             <constraint firstItem="7es-RH-x2U" firstAttribute="leading" secondItem="WhL-uQ-HDA" secondAttribute="leadingMargin" id="hS8-xH-0Nd"/>
+                            <constraint firstItem="7es-RH-x2U" firstAttribute="leading" secondItem="WhL-uQ-HDA" secondAttribute="leading" id="zcm-ff-rSw"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Gvc-cv-Mic"/>
+                                <exclude reference="QyN-b1-U5r"/>
+                                <exclude reference="hS8-xH-0Nd"/>
+                                <exclude reference="L3r-MI-rIJ"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="7es-RH-x2U" id="QiE-66-hoy"/>

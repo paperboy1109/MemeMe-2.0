@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F2A34C124BD278BD851B3061099762D18DBB75F0+++54F5499",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F2A34C124BD278BD851B3061099762D18DBB75F0+++3822F0A" : 0,
+    "F2A34C124BD278BD851B3061099762D18DBB75F0+++922F32E" : 0,
+    "F2A34C124BD278BD851B3061099762D18DBB75F0+++54F5499" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F8528FB5-9C51-4BFA-B246-A3613FBDC4CD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F2A34C124BD278BD851B3061099762D18DBB75F0+++3822F0A" : "MemeMe-1.0\/",
+    "F2A34C124BD278BD851B3061099762D18DBB75F0+++922F32E" : "MemeMe-1.0\/",
+    "F2A34C124BD278BD851B3061099762D18DBB75F0+++54F5499" : "MemeMe-2.0\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MemeMe 2.0",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MemeMe 2.0.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/paperboy1109\/MemeMe-1.0.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F2A34C124BD278BD851B3061099762D18DBB75F0+++3822F0A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/paperboy1109\/MemeMe-2.0.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F2A34C124BD278BD851B3061099762D18DBB75F0+++54F5499"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/paperboy1109\/MemeMe-2.0.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F2A34C124BD278BD851B3061099762D18DBB75F0+++922F32E"
+    }
+  ]
+}

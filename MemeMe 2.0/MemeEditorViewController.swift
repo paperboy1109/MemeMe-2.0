@@ -54,6 +54,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         shareBtn.enabled = false
         self.tabBarController?.tabBar.hidden = true
+        self.navigationController?.navigationBarHidden = true
         
     }
     

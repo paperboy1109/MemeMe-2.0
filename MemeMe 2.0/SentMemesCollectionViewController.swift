@@ -81,6 +81,9 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "MemeDetailVC" {
+            
+            navigationItem.title = "Sent Memes"
+            
             if let detailsVC = segue.destinationViewController as? MemeDetailViewController {
                 if let memeDetailImg = sender as? UIImage {
                     detailsVC.detailImg = memeDetailImg

@@ -14,6 +14,10 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
     
+    var sentMemes: [UIImage] {
+        return (UIApplication.sharedApplication().delegate as! AppDelegate).sentMemes
+    }
+    
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -31,13 +35,31 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         flowLayout.itemSize = CGSizeMake(horizontalDimension, vertcalDimension)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
+        collection.reloadData()
+        
+        self.tabBarController?.tabBar.hidden = false
+        self.navigationController?.navigationBarHidden = false
+        
+    }
+    
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return memes.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionCell", forIndexPath: indexPath) as? CollectionViewCell {
+            
+            /*
+            let cellMeme = memes[indexPath.row]
+            cell.configureCell(cellMeme)
+            */
+            
+            cell.collectionCellImg.image = sentMemes[indexPath.row]
             
             return cell
             

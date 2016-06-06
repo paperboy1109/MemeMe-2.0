@@ -17,6 +17,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet var shareBtn: UIBarButtonItem!
     @IBOutlet var topToolbar: UIToolbar!
     @IBOutlet var bottomToolbar: UIToolbar!
+    @IBOutlet var cancelBtn: UIBarButtonItem!
     
     var initialVerticalPosForView: CGFloat!
     
@@ -52,9 +53,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         setPlaceholderText(topMemeText, initialText: "TOP")
         setPlaceholderText(bottomMemeText, initialText: "BOTTOM")
         
+        
         shareBtn.enabled = false
+        /*
         self.tabBarController?.tabBar.hidden = true
         self.navigationController?.navigationBarHidden = true
+        */
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tap)
         
     }
     
@@ -65,6 +73,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         cameraBtn.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
 
         subscribeToKeyboardNotifications()
+        
+        self.tabBarController?.tabBar.hidden = true
+        self.navigationController?.navigationBarHidden = true
         
     }
     
@@ -141,6 +152,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         setPlaceholderText(bottomMemeText, initialText: "BOTTOM")
         shareBtn.enabled = false
         
+        // dismissViewControllerAnimated(true, completion: nil)
+        performSegueWithIdentifier("SentMemesVC", sender: nil)
+        
     }
     
     func setPlaceholderText(textField: UITextField, initialText: String) {
@@ -184,6 +198,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         let memedImg: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
+        // Add it to the sentMemes array in the Application Delegate
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.sentMemes.append(memedImg)
         
         // Show the toolbars
         topToolbar.hidden = false
@@ -238,6 +257,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // Hide the status bar so it doesn interfere with the top bar buttons
     override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    //
+    func doubleTapped() -> Bool {
         return true
     }
 

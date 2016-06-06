@@ -11,5 +11,17 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionCellImg: UIImageView!
+    @IBOutlet weak var topLbl: UILabel!
+    @IBOutlet weak var bottomLbl: UILabel!
+    
+    var meme: Meme!
+    
+    func configureCell(meme: Meme) {
+        self.meme = meme
+        collectionCellImg.image = meme.originalImg
+        topLbl.text = meme.topMemeText
+        bottomLbl.text = meme.bottomMemeText
+    }
+    
 
 }

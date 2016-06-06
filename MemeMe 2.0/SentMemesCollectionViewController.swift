@@ -41,8 +41,8 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         
         collection.reloadData()
         
-        self.tabBarController?.tabBar.hidden = false
-        self.navigationController?.navigationBarHidden = false
+        //self.tabBarController?.tabBar.hidden = false
+        //self.navigationController?.navigationBarHidden = false
         
     }
     
@@ -70,6 +70,7 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print("didSelectItemAtIndexPath has been called")
+        performSegueWithIdentifier("MemeDetailVC", sender: nil)
     }
     
     @IBAction func addMemeTapped(sender: UIBarButtonItem) {

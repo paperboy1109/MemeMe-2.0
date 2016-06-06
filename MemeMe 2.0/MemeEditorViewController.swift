@@ -82,6 +82,9 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
+        
+        self.tabBarController?.tabBar.hidden = false
+        self.navigationController?.navigationBarHidden = false
     }
     
     

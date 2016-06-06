@@ -70,12 +70,23 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print("didSelectItemAtIndexPath has been called")
-        performSegueWithIdentifier("MemeDetailVC", sender: nil)
+        let memeDetailImg = sentMemes[indexPath.row]
+        performSegueWithIdentifier("MemeDetailVC", sender: memeDetailImg)
     }
     
     @IBAction func addMemeTapped(sender: UIBarButtonItem) {
         let editorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
         self.navigationController!.pushViewController(editorViewController, animated: true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "MemeDetailVC" {
+            if let detailsVC = segue.destinationViewController as? MemeDetailViewController {
+                if let memeDetailImg = sender as? UIImage {
+                    detailsVC.detailImg = memeDetailImg
+                }
+            }
+        }
     }
 
 }

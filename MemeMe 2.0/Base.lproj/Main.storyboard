@@ -184,6 +184,9 @@
                             <constraint firstItem="7es-RH-x2U" firstAttribute="leading" secondItem="WhL-uQ-HDA" secondAttribute="leadingMargin" id="hS8-xH-0Nd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="7es-RH-x2U" id="QiE-66-hoy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpo-mC-NyV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -106,7 +106,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="YwA-Y2-0vs"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kT6-mg-Dnc">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="lpr-YB-V2u"/>
+                                <action selector="addMemeTapped:" destination="8an-WQ-kuO" id="tBB-oh-45s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -122,7 +122,7 @@
         <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe_2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeEditorViewController" id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe_2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

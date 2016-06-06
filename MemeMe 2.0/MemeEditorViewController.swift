@@ -53,6 +53,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         setPlaceholderText(bottomMemeText, initialText: "BOTTOM")
         
         shareBtn.enabled = false
+        self.tabBarController?.tabBar.hidden = true
         
     }
     

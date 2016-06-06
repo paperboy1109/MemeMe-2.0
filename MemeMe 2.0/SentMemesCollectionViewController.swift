@@ -49,5 +49,10 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print("didSelectItemAtIndexPath has been called")
     }
+    
+    @IBAction func addMemeTapped(sender: UIBarButtonItem) {
+        let editorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        self.navigationController!.pushViewController(editorViewController, animated: true)
+    }
 
 }

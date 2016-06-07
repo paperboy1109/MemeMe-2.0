@@ -155,9 +155,26 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         setPlaceholderText(bottomMemeText, initialText: "BOTTOM")
         shareBtn.enabled = false
         
-        // dismissViewControllerAnimated(true, completion: nil)
-        performSegueWithIdentifier("SentMemesVC", sender: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
         
+        //performSegueWithIdentifier("SentMemesVC", sender: nil)
+        /*
+        if let navController = self.navigationController {
+            navController.popViewControllerAnimated(true)
+        }
+        */
+        
+        //let editorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        //self.navigationController!.popViewControllerAnimated(true)
+        
+        //self.navigationController!.popToRootViewControllerAnimated(true)
+        
+        //self.storyboard!.instantiateViewControllerWithIdentifier("SharedMemesVC")
+        // self.navigationController!.popToViewController("SharedMemesVC", animated: true)
+        
+        //self.navigationController!.popToViewController(self.storyboard!.instantiateViewControllerWithIdentifier("SharedMemesVC") , animated: true)
+        
+        //storyboard!.instantiateInitialViewController()
     }
     
     func setPlaceholderText(textField: UITextField, initialText: String) {

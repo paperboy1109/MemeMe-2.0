@@ -27,9 +27,9 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         collection.delegate = self
         collection.dataSource = self
         
-        let space: CGFloat = 3.0
-        let horizontalDimension = (view.frame.size.width - (2*space)) / 3.0
-        let vertcalDimension = (view.frame.size.height - (2*space)) / 3.0
+        let space: CGFloat = 8.0
+        let horizontalDimension = (view.frame.size.width - (2*space)) / 2.5
+        let vertcalDimension = (view.frame.size.height - (2*space)) / 2.5
         let dimension = min(horizontalDimension, vertcalDimension)
         
         flowLayout.minimumInteritemSpacing = space
@@ -70,7 +70,7 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("didSelectItemAtIndexPath has been called")
+        //print("didSelectItemAtIndexPath has been called")
         let memeDetailImg = sentMemes[indexPath.row]
         performSegueWithIdentifier("MemeDetailVC", sender: memeDetailImg)
     }

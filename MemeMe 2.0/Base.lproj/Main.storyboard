@@ -47,7 +47,7 @@
         <scene sceneID="GO8-bH-HyG">
             <objects>
                 <navigationController id="2yu-RS-blb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="CollectionView" selectedImage="collection_30x30" id="3dK-JK-VAL"/>
+                    <tabBarItem key="tabBarItem" title="CollectionView" image="collection_30x30" selectedImage="collection_30x30" id="3dK-JK-VAL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="llO-0M-fP5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -72,7 +72,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AaW-3K-P9J">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AaW-3K-P9J">
                                 <rect key="frame" x="20" y="118" width="560" height="474"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vpb-hg-8l1">
@@ -83,13 +83,13 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="ATJ-d4-c6O" customClass="CollectionViewCell" customModule="MemeMe_2_0" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="109" height="109"/>
+                                        <rect key="frame" x="0.0" y="64" width="109" height="109"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="109" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOJ-Kb-xRq">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOJ-Kb-xRq">
                                                     <rect key="frame" x="8" y="8" width="93" height="93"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Wv2-3I-9zI">
@@ -172,7 +172,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7es-RH-x2U">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7es-RH-x2U">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                             </imageView>
                         </subviews>
@@ -275,11 +275,14 @@
                         <constraints>
                             <constraint firstItem="i2Z-Qw-Vzs" firstAttribute="top" secondItem="eY1-ho-TW4" secondAttribute="bottom" constant="20" id="5kP-h5-spL"/>
                             <constraint firstItem="BJI-rI-vF1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6Rx-oo-4Yk"/>
+                            <constraint firstItem="Tbr-9h-oDg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Dd4-Yf-TL5"/>
                             <constraint firstItem="QnI-wE-afH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="JgE-Gv-jui"/>
                             <constraint firstItem="BJI-rI-vF1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LRj-Qe-2Y7"/>
+                            <constraint firstItem="Tbr-9h-oDg" firstAttribute="top" secondItem="BJI-rI-vF1" secondAttribute="bottom" constant="20" id="OKh-X0-y6y"/>
                             <constraint firstItem="QnI-wE-afH" firstAttribute="top" secondItem="BJI-rI-vF1" secondAttribute="bottom" id="Orn-PL-Hgz"/>
                             <constraint firstItem="eY1-ho-TW4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Wpz-Df-FDa"/>
                             <constraint firstAttribute="trailing" secondItem="BJI-rI-vF1" secondAttribute="trailing" id="WqP-gy-qmg"/>
+                            <constraint firstItem="Tbr-9h-oDg" firstAttribute="top" secondItem="BJI-rI-vF1" secondAttribute="bottom" constant="20" id="XnG-H7-wA9"/>
                             <constraint firstItem="Tbr-9h-oDg" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ZuU-JL-Ljk"/>
                             <constraint firstItem="Tbr-9h-oDg" firstAttribute="top" secondItem="BJI-rI-vF1" secondAttribute="bottom" constant="20" id="aTf-Ku-z7D"/>
                             <constraint firstItem="eY1-ho-TW4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bJE-XQ-96D"/>
@@ -290,6 +293,13 @@
                             <constraint firstAttribute="trailing" secondItem="QnI-wE-afH" secondAttribute="trailing" id="eH3-BC-IA1"/>
                             <constraint firstItem="i2Z-Qw-Vzs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nfp-Dg-pbW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Dd4-Yf-TL5"/>
+                                <exclude reference="OKh-X0-y6y"/>
+                                <exclude reference="aTf-Ku-z7D"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="bottomMemeText" destination="eY1-ho-TW4" id="OQN-Tk-4we"/>
@@ -311,6 +321,6 @@
         <image name="collection_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9FX-WF-Xcv"/>
+        <segue reference="vIk-0e-qu8"/>
     </inferredMetricsTieBreakers>
 </document>

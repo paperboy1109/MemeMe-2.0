@@ -33,6 +33,10 @@ class MemeDetailViewController: UIViewController {
         
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
+    }
+    
     
 
 }

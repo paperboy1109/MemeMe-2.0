@@ -6,25 +6,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--GreenVC-->
-        <scene sceneID="W6Q-2G-N4q">
-            <objects>
-                <viewController id="9Uv-C2-JtJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5te-Rs-adB"/>
-                        <viewControllerLayoutGuide type="bottom" id="O99-bG-zCL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="IDu-If-4GP">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.51372549020000002" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="GreenVC" image="table_30x30" id="AuE-uo-mTC"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dyu-MB-NCd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-657" y="734"/>
-        </scene>
         <!--Table View-->
         <scene sceneID="cy4-Hq-LNb">
             <objects>
@@ -52,7 +33,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9Uv-C2-JtJ" kind="relationship" relationship="viewControllers" id="ApT-VP-OCd"/>
                         <segue destination="2yu-RS-blb" kind="relationship" relationship="viewControllers" id="5kf-Ah-Td8"/>
                         <segue destination="62a-Ey-in5" kind="relationship" relationship="viewControllers" id="Jh9-b8-XS8"/>
                     </connections>

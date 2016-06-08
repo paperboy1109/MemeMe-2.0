@@ -32,7 +32,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
         super.viewWillAppear(animated)
         
         tableView.reloadData()
-        
     }
 
 
@@ -67,8 +66,9 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func addMemeTapped(sender: UIBarButtonItem) {
-        let editorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        self.navigationController!.pushViewController(editorViewController, animated: true)
+        //let editorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        //self.navigationController!.pushViewController(editorViewController, animated: true)
+        performSegueWithIdentifier("TableToEditor", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

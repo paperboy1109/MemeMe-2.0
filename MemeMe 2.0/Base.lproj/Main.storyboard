@@ -171,6 +171,7 @@
                         <outlet property="collection" destination="AaW-3K-P9J" id="PT7-fa-Dig"/>
                         <outlet property="flowLayout" destination="vpb-hg-8l1" id="c2Q-oC-pe1"/>
                         <segue destination="SOs-of-1wb" kind="show" identifier="MemeDetailVC" id="9dU-Nq-YTy"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="CollectionToEditor" id="Apw-oY-PQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cs3-gz-ySH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,7 +190,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7es-RH-x2U">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7es-RH-x2U">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
                         </subviews>
@@ -245,7 +246,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="4iI-ty-4qd"/>
-                                    <barButtonItem systemItem="cancel" id="nGj-Ah-ZMn"/>
+                                    <barButtonItem systemItem="cancel" id="nGj-Ah-ZMn">
+                                        <connections>
+                                            <action selector="cancelMeme" destination="BYZ-38-t0r" id="UBZ-A4-eTM"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2Z-Qw-Vzs" userLabel="Bottom Toolbar">
@@ -318,7 +323,6 @@
                         <outlet property="bottomMemeText" destination="eY1-ho-TW4" id="OQN-Tk-4we"/>
                         <outlet property="bottomToolbar" destination="i2Z-Qw-Vzs" id="77S-yu-YC0"/>
                         <outlet property="cameraBtn" destination="H8L-Jw-pbc" id="dEd-us-BV0"/>
-                        <outlet property="cancelBtn" destination="nGj-Ah-ZMn" id="7tn-xX-gPD"/>
                         <outlet property="memeView" destination="QnI-wE-afH" id="fW0-1X-ahS"/>
                         <outlet property="shareBtn" destination="P7i-yV-SbG" id="yCP-qI-48D"/>
                         <outlet property="topMemeText" destination="Tbr-9h-oDg" id="pXt-oO-QLM"/>
@@ -400,6 +404,7 @@
                     <connections>
                         <outlet property="tableView" destination="Zqa-ee-ffn" id="Wo8-bc-chk"/>
                         <segue destination="SOs-of-1wb" kind="show" identifier="MemeDetailVC2" id="u0e-Ji-gSf"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="TableToEditor" id="XhN-i3-Wu8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbK-dh-DEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -412,6 +417,7 @@
         <image name="table_30x30" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="XhN-i3-Wu8"/>
         <segue reference="u0e-Ji-gSf"/>
     </inferredMetricsTieBreakers>
 </document>

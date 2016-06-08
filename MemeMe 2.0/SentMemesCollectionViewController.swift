@@ -27,9 +27,9 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         collection.delegate = self
         collection.dataSource = self
         
-        let space: CGFloat = 8.0
-        let horizontalDimension = (view.frame.size.width - (2*space)) / 2.5
-        let vertcalDimension = (view.frame.size.height - (2*space)) / 2.5
+        let space: CGFloat = 3.0
+        let horizontalDimension = (view.frame.size.width - (2*space)) / 3.5
+        let vertcalDimension = (view.frame.size.height - (2*space)) / 3.5
         let dimension = min(horizontalDimension, vertcalDimension)
         
         flowLayout.minimumInteritemSpacing = space
@@ -73,11 +73,14 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         //print("didSelectItemAtIndexPath has been called")
         let memeDetailImg = sentMemes[indexPath.row]
         performSegueWithIdentifier("MemeDetailVC", sender: memeDetailImg)
+        
     }
     
     @IBAction func addMemeTapped(sender: UIBarButtonItem) {
-        let editorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        self.navigationController!.pushViewController(editorViewController, animated: true)
+        //let editorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        //self.navigationController!.pushViewController(editorViewController, animated: true)
+        
+        performSegueWithIdentifier("CollectionToEditor", sender: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

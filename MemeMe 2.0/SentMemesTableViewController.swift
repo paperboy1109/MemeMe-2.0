@@ -58,7 +58,7 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let memeDetailImg = sentMemes[indexPath.row]
-        performSegueWithIdentifier("MemeDetailVC", sender: memeDetailImg)
+        performSegueWithIdentifier("MemeDetailVC2", sender: memeDetailImg)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

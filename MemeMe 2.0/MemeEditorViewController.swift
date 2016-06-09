@@ -24,15 +24,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     var memeTextDelegate = MemeTextDelegate()
     let pickerController = UIImagePickerController()
     
-    /*
-    struct Meme {
-        var topMemeText: String?
-        var bottomMemeText: String?
-        var originalImg: UIImage?
-        var memeImg: UIImage?
-    }
-    */
-    
     let memeTextAttributes = [
         NSStrokeColorAttributeName: UIColor.blackColor(),
         NSForegroundColorAttributeName: UIColor.whiteColor(),
@@ -53,12 +44,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         setPlaceholderText(topMemeText, initialText: "TOP")
         setPlaceholderText(bottomMemeText, initialText: "BOTTOM")
         
-        
         shareBtn.enabled = false
-        /*
-        self.tabBarController?.tabBar.hidden = true
-        self.navigationController?.navigationBarHidden = true
-        */
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tap.numberOfTapsRequired = 2
@@ -182,7 +168,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         let newMeme = Meme( topMemeText: topMemeText.text!, bottomMemeText: bottomMemeText.text!, originalImg: memeView.image, memeImg: newMeme)
         
-        // Add it to the memes array in the Application Delegate
+        // Add newMeme to the memes array in the Application Delegate
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(newMeme)

@@ -42,9 +42,6 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
         
         collection.reloadData()
         
-        //self.tabBarController?.tabBar.hidden = false
-        //self.navigationController?.navigationBarHidden = false
-        
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -54,11 +51,6 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         if let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionCell", forIndexPath: indexPath) as? CollectionViewCell {
-            
-            /*
-            let cellMeme = memes[indexPath.row]
-            cell.configureCell(cellMeme)
-            */
             
             cell.collectionCellImg.image = sentMemes[indexPath.row]
             
@@ -70,15 +62,12 @@ class SentMemesCollectionViewController: UIViewController, UICollectionViewDeleg
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //print("didSelectItemAtIndexPath has been called")
         let memeDetailImg = sentMemes[indexPath.row]
         performSegueWithIdentifier("MemeDetailVC", sender: memeDetailImg)
         
     }
     
     @IBAction func addMemeTapped(sender: UIBarButtonItem) {
-        //let editorViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
-        //self.navigationController!.pushViewController(editorViewController, animated: true)
         
         performSegueWithIdentifier("CollectionToEditor", sender: nil)
     }

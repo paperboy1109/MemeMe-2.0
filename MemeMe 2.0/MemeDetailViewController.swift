@@ -15,12 +15,7 @@ class MemeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // self.navigationController?.toolbarItems.
-        // self.navigationItem.backBarButtonItem
-        
-        
-        
+
         imageView.image = detailImg
         
     }
